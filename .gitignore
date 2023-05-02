@@ -1,0 +1,16 @@
+
+compile_commands.json
+
+.cache/
+
+build/
+
+*.user
+
+.vs/
+
+x64/
+
+videoPS.h
+
+videoVS.h
