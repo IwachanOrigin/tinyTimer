@@ -17,7 +17,7 @@
     powershell.exe cmake -S . -B build  
     powershell.exe cmake --build build  
 
-    ex. Ninja + LLVMの場合(LLVM 15 win64で検証)  
+    ex. Ninja + LLVMの場合(LLVM 16 win64で検証)  
     powershell.exe cmake -S . -B build -G "\"Ninja Multi-Config\""  
     powershell.exe cmake --build build --config debug
 
