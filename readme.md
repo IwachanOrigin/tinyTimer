@@ -15,6 +15,12 @@
     これらの関数は終了時間 - 開始時間を行い、ミリ秒、またはマイクロ秒を返します。  
     now関数は、関数が呼び出された時点の時間を返します。  
     計測開始時点の時間ではありません。  
+    また、elapsed関数またはelapsed_micro関数呼び出し時にタイマー自体は停止しません。  
+    そのため、両方の関数を実行する場合、出力時間はズレてしまいます。  
+
+## Demo execute image
+
+![result](https://user-images.githubusercontent.com/12496951/236102711-672b31b0-a1ce-4bf0-aad1-6d778404081a.png)
 
 ## Build
 
