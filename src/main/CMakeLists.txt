@@ -4,4 +4,8 @@ set(main_src
   timer.h
 )
 
-add_executable(${PROJECT_NAME} ${main_src})
+add_executable(
+  ${PROJECT_NAME}
+  ${main_src}
+)
+

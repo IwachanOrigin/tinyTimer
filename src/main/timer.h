@@ -6,6 +6,7 @@
 #include <sstream>
 #include <iomanip>
 #include <iostream>
+#include <ctime>
 
 class Timer
 {
@@ -16,16 +17,25 @@ public:
   std::wstring now()
   {
     struct tm timeinfo;
-    errno_t err = 0;
 
     auto now = std::chrono::system_clock::now();
     auto now_c = std::chrono::system_clock::to_time_t(now);
+#ifdef _WIN32
+    errno_t err = 0;
     err = localtime_s(&timeinfo, &now_c);
     if (err != 0)
     {
       std::wcerr << "Failed create log file." << std::endl;
       return L"";
     }
+#else
+    // For Linux(gcc)
+    if (localtime_r(&now_c, &timeinfo) == nullptr)
+    {
+      std::wcerr << "Failed create log file." << std::endl;
+      return L"";
+    }
+#endif
 
     std::wstringstream ss;
     ss << std::put_time(&timeinfo, L"%Y/%m/%d_%H:%M:%S");
